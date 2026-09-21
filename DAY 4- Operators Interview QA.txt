@@ -1,0 +1,773 @@
+Python Operators – ETL Testing Interview Questions & Answers
+
+Below are interview-ready answers in simple language, with Python examples and practical ETL Testing scenarios.
+
+1. What are operators in Python?
+
+Operators are special symbols or keywords used to perform operations on values and variables.
+
+Example:
+
+a = 10
+b = 5
+
+print(a + b)
+print(a > b)
+
+Output:
+
+15
+True
+
+Here:
+
++ → Arithmetic operator
+> → Comparison operator
+
+Interview answer:
+
+Operators are symbols or keywords used to perform operations such as arithmetic calculations, comparisons, logical operations, assignments, and membership checks.
+
+2. What are the different types of operators available in Python?
+
+Python provides several types of operators:
+
+Type	Operators
+Arithmetic	+ - * / // % **
+Comparison	== != > < >= <=
+Logical	and or not
+Assignment	= += -= *= /= //= %= **=
+Membership	in, not in
+Identity	is, is not
+Bitwise	& | ^ ~ << >>
+3. What are arithmetic operators in Python?
+
+Arithmetic operators are used to perform mathematical calculations.
+
+Operator	Meaning	Example
++	Addition	10 + 5 = 15
+-	Subtraction	10 - 5 = 5
+*	Multiplication	10 * 5 = 50
+/	Division	10 / 5 = 2.0
+//	Floor division	10 // 3 = 3
+%	Modulus/remainder	10 % 3 = 1
+**	Exponent	2 ** 3 = 8
+
+Example:
+
+a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a // b)
+print(a % b)
+print(a ** b)
+4. Difference between / and //
+/ → True Division
+
+Returns the division result as a float.
+
+print(10 / 3)
+
+Output:
+
+3.3333333333333335
+// → Floor Division
+
+Returns the floor of the division result.
+
+print(10 // 3)
+
+Output:
+
+3
+Easy way:
+/   → Normal division
+//  → Floor division
+
+ETL example:
+
+If you are calculating complete groups/batches:
+
+records = 103
+batch_size = 10
+
+batches = records // batch_size
+print(batches)
+
+Output:
+
+10
+5. What is the use of % operator?
+
+% returns the remainder after division.
+
+print(10 % 3)
+
+Output:
+
+1
+ETL example – Check even/odd:
+record_count = 100
+
+if record_count % 2 == 0:
+    print("Even number of records")
+
+It can also be useful for checking batch boundaries or divisibility.
+
+6. Difference between = and ==
+
+This is a very common interview question.
+
+= → Assignment
+
+Used to assign a value.
+
+x = 10
+
+Means:
+
+Store/reference the value 10 in x.
+
+== → Comparison
+
+Used to compare two values.
+
+x = 10
+
+print(x == 10)
+
+Output:
+
+True
+Easy way:
+=   → Assign
+==  → Compare
+7. What are comparison operators?
+
+Comparison operators are used to compare two values and return True or False.
+
+Operator	Meaning
+==	Equal
+!=	Not equal
+>	Greater than
+<	Less than
+>=	Greater than or equal
+<=	Less than or equal
+
+Example:
+
+a = 10
+b = 20
+
+print(a == b)
+print(a != b)
+print(a < b)
+print(a > b)
+
+Output:
+
+False
+True
+True
+False
+8. Difference between == and !=
+==
+
+Checks whether two values are equal.
+
+10 == 10
+
+Result:
+
+True
+!=
+
+Checks whether two values are different.
+
+10 != 20
+
+Result:
+
+True
+ETL example:
+source_count = 100
+target_count = 95
+
+if source_count != target_count:
+    print("Record count mismatch")
+9. What are logical operators?
+
+Logical operators are used to combine or modify conditions.
+
+Python has three logical operators:
+
+and
+or
+not
+
+Example:
+
+age = 25
+salary = 50000
+
+print(age > 18 and salary > 30000)
+
+Output:
+
+True
+10. Difference between and, or, and not
+and
+
+Returns True when both conditions are true.
+
+age = 25
+salary = 50000
+
+print(age > 18 and salary > 30000)
+
+Output:
+
+True
+or
+
+Returns True when at least one condition is true.
+
+print(age > 30 or salary > 30000)
+
+Output:
+
+True
+
+Because the salary condition is true.
+
+not
+
+Reverses the Boolean result.
+
+x = True
+
+print(not x)
+
+Output:
+
+False
+Easy memory trick:
+and → BOTH
+or  → ANY ONE
+not → REVERSE
+11. What are assignment operators?
+
+Assignment operators are used to assign or update values.
+
+Common assignment operators:
+
+= 
++=
+-=
+*=
+/=
+%=
+//=
+**=
+
+Example:
+
+x = 10
+
+x += 5
+print(x)
+
+Output:
+
+15
+12. Difference between = and +=
+=
+
+Assigns a value.
+
+x = 10
++=
+
+Adds a value to the existing value and assigns the result back.
+
+x = 10
+x += 5
+
+print(x)
+
+Output:
+
+15
+
+This:
+
+x += 5
+
+is equivalent to:
+
+x = x + 5
+ETL example:
+processed_records = 100
+
+processed_records += 50
+
+print(processed_records)
+
+Output:
+
+150
+13. What are membership operators?
+
+Membership operators check whether a value exists inside a sequence or collection.
+
+Python provides:
+
+in
+not in
+
+Example:
+
+names = ["Rahul", "Shruthi", "Anita"]
+
+print("Shruthi" in names)
+
+Output:
+
+True
+14. Difference between in and not in
+in
+
+Checks whether a value exists.
+
+names = ["Rahul", "Shruthi", "Anita"]
+
+print("Shruthi" in names)
+
+Output:
+
+True
+not in
+
+Checks whether a value does not exist.
+
+print("John" not in names)
+
+Output:
+
+True
+ETL example:
+expected_status = ["PASS", "FAIL", "WARNING"]
+
+status = "PASS"
+
+if status in expected_status:
+    print("Valid status")
+15. What are identity operators?
+
+Identity operators check whether two variables refer to the same object.
+
+Python provides:
+
+is
+is not
+
+Example:
+
+a = [1, 2, 3]
+b = a
+
+print(a is b)
+
+Output:
+
+True
+
+Both names refer to the same list object.
+
+16. Difference between is and ==
+
+This is extremely important.
+
+== → Compares values
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)
+
+Output:
+
+True
+
+The values are equal.
+
+is → Compares object identity
+print(a is b)
+
+Output:
+
+False
+
+They are two separate list objects.
+
+Diagram:
+a → [1, 2, 3]
+
+b → [1, 2, 3]
+
+==  → Values are same → True
+is  → Objects are different → False
+
+Interview answer:
+
+== checks whether two objects have equal values, whereas is checks whether two references point to the same object.
+
+For normal data comparisons, use ==. Use is primarily for identity checks such as:
+
+if value is None:
+    ...
+17. What are bitwise operators?
+
+Bitwise operators perform operations on the binary representation of integers.
+
+Common bitwise operators:
+
+Operator	Meaning
+&	AND
+|	OR
+^	XOR
+~	NOT
+<<	Left shift
+>>	Right shift
+
+Example:
+
+a = 5
+b = 3
+
+print(a & b)
+
+Binary:
+
+5 → 101
+3 → 011
+     ---
+& → 001
+
+Output:
+
+1
+
+Bitwise operators are more common in low-level/system-oriented processing than in typical ETL validation.
+
+18. What is operator precedence?
+
+Operator precedence determines the order in which Python evaluates operators.
+
+Example:
+
+result = 10 + 5 * 2
+
+print(result)
+
+Output:
+
+20
+
+Multiplication is performed before addition:
+
+5 × 2 = 10
+10 + 10 = 20
+Use parentheses when you want to make the order explicit:
+result = (10 + 5) * 2
+
+print(result)
+
+Output:
+
+30
+Common order:
+()
+**
+*, /, //, %
++, -
+comparisons
+not
+and
+or
+19. How can operators validate source and target record counts?
+
+Comparison operators can check whether source and target record counts match.
+
+source_count = 1000
+target_count = 1000
+
+if source_count == target_count:
+    print("PASS")
+else:
+    print("FAIL")
+
+Output:
+
+PASS
+If counts differ:
+source_count = 1000
+target_count = 950
+
+Then:
+
+FAIL
+
+This is a common ETL reconciliation check.
+
+20. How would you use comparison operators to identify mismatched records?
+
+Suppose we have source and target values:
+
+source_salary = 50000
+target_salary = 45000
+
+if source_salary != target_salary:
+    print("Salary mismatch")
+
+Output:
+
+Salary mismatch
+
+You can also compare IDs:
+
+if source_id == target_id:
+    print("ID matched")
+else:
+    print("ID mismatch")
+
+Comparison operators help identify:
+
+ID mismatches
+Amount mismatches
+Date mismatches
+Status mismatches
+Count mismatches
+21. How can logical operators validate multiple ETL business rules?
+
+Suppose an employee record is valid only when:
+
+Employee ID is present
+Salary is greater than zero
+Status is active
+employee_id = 101
+salary = 50000
+status = "ACTIVE"
+
+if employee_id > 0 and salary > 0 and status == "ACTIVE":
+    print("PASS")
+else:
+    print("FAIL")
+
+Here and combines multiple business rules.
+
+Using or:
+if status == "FAILED" or status == "REJECTED":
+    print("Investigate record")
+22. How would you use in to validate expected values?
+
+Suppose valid statuses are:
+
+valid_status = ["ACTIVE", "INACTIVE", "PENDING"]
+
+status = "ACTIVE"
+
+if status in valid_status:
+    print("Valid status")
+else:
+    print("Invalid status")
+
+Output:
+
+Valid status
+
+This is useful for validating:
+
+Status values
+Country codes
+Department codes
+Product categories
+Expected ETL results
+23. How can arithmetic operators validate calculated columns?
+
+Suppose the source contains:
+
+Quantity = 10
+Price = 100
+
+Expected amount:
+
+10 × 100 = 1000
+
+Python:
+
+quantity = 10
+price = 100
+source_amount = 1000
+
+calculated_amount = quantity * price
+
+if calculated_amount == source_amount:
+    print("PASS")
+else:
+    print("FAIL")
+
+Output:
+
+PASS
+
+This can be used to validate calculated columns such as:
+
+Total Amount = Quantity × Price
+Tax Amount = Amount × Tax Rate
+Net Amount = Gross Amount - Discount
+24. How would you determine whether an ETL test case is PASS or FAIL?
+
+Use a comparison condition.
+
+source_count = 100
+target_count = 100
+
+if source_count == target_count:
+    test_result = "PASS"
+else:
+    test_result = "FAIL"
+
+print(test_result)
+
+Output:
+
+PASS
+
+You can combine multiple conditions:
+
+if source_count == target_count and source_amount == target_amount:
+    print("PASS")
+else:
+    print("FAIL")
+25. Real-time ETL scenario: Combine arithmetic, comparison, logical, and membership operators
+
+This is a strong interview question.
+
+Suppose we need to validate an employee record.
+
+Business rules:
+Source and target record counts must match.
+Salary must be greater than zero.
+Employee status must be ACTIVE or INACTIVE.
+Source salary must match target salary.
+Python:
+source_count = 1000
+target_count = 1000
+
+source_salary = 50000
+target_salary = 50000
+
+salary = 50000
+status = "ACTIVE"
+
+valid_status = ["ACTIVE", "INACTIVE"]
+
+if (
+    source_count == target_count
+    and source_salary == target_salary
+    and salary > 0
+    and status in valid_status
+):
+    print("ETL TEST CASE: PASS")
+else:
+    print("ETL TEST CASE: FAIL")
+
+Output:
+
+ETL TEST CASE: PASS
+Where are the operators?
+source_count == target_count
+        ↓
+Comparison operator
+
+source_salary == target_salary
+        ↓
+Comparison operator
+
+salary > 0
+        ↓
+Comparison operator
+
+status in valid_status
+        ↓
+Membership operator
+
+condition1 and condition2...
+        ↓
+Logical operator
+
+Arithmetic can also be included:
+
+quantity = 10
+price = 100
+
+expected_amount = quantity * price
+target_amount = 1000
+
+if expected_amount == target_amount:
+    print("Amount validation PASS")
+
+Here:
+
+*   → Arithmetic
+==  → Comparison
+in  → Membership
+and → Logical
+🎯 Quick Interview Revision
+Operator Type	Main Use	Example
+Arithmetic	Calculations	a + b
+Comparison	Compare values	a == b
+Logical	Combine conditions	a > 10 and b > 20
+Assignment	Assign/update values	x += 5
+Membership	Check existence	x in list
+Identity	Check same object	x is y
+Bitwise	Binary operations	a & b
+⭐ Most Important Differences
+=       → Assignment
+==      → Value comparison
+!=      → Not equal
+/       → True division
+//      → Floor division
+%       → Remainder
+and     → Both conditions
+or      → At least one condition
+not     → Reverse condition
+in      → Value exists
+not in  → Value doesn't exist
+is      → Same object
+🎯 ETL Testing Flow
+        SOURCE
+           ↓
+   Read Source Data
+           ↓
+   Arithmetic Operators
+   Calculate expected values
+           ↓
+   Comparison Operators
+   Compare Source vs Target
+           ↓
+   Logical Operators
+   Apply multiple rules
+           ↓
+   Membership Operators
+   Validate allowed values
+           ↓
+      PASS / FAIL
+
+Strong overall interview statement:
+
+In ETL Testing, Python operators help me validate record counts, compare source and target values, calculate expected results, validate business rules, check allowed values, and determine whether a test case should PASS or FAIL.
