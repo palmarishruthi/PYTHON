@@ -1,0 +1,667 @@
+Python Variables – Interview Questions & Answers
+1. What is a variable in Python, and why is it used?
+
+A variable is a name used to refer to a value/object stored in memory.
+
+Variables are used to store and work with data in a program.
+
+Example:
+name = "Shruthi"
+age = 25
+salary = 50000
+
+print(name)
+print(age)
+print(salary)
+
+Here:
+
+name   → "Shruthi"
+age    → 25
+salary → 50000
+
+Interview answer:
+
+A variable in Python is a name that refers to an object or value. It is used to store and manipulate data during program execution.
+
+2. How do you create a variable in Python?
+
+Python does not require us to declare the variable type separately.
+
+We simply assign a value using =.
+
+Syntax:
+variable_name = value
+Example:
+name = "Shruthi"
+age = 25
+salary = 45000.50
+
+Python automatically determines the type:
+
+print(type(name))
+print(type(age))
+print(type(salary))
+
+Output:
+
+<class 'str'>
+<class 'int'>
+<class 'float'>
+
+Interview answer:
+
+A variable is created by assigning a value to a variable name using the assignment operator =.
+
+3. What are the rules for naming variables in Python?
+
+There are some important rules.
+
+Rules:
+Variable name can contain letters, numbers and underscore _.
+It cannot start with a number.
+It cannot contain spaces.
+It is case-sensitive.
+It cannot be a Python keyword.
+Valid:
+name = "Shruthi"
+age1 = 25
+employee_name = "Rahul"
+_salary = 50000
+Invalid:
+1name = "Shruthi"       # Cannot start with number
+employee name = "A"    # Space not allowed
+employee-name = "A"    # - is not allowed
+
+Also avoid using Python keywords:
+
+class = 10      # Invalid
+for = 20        # Invalid
+Case-sensitive:
+name = "Shruthi"
+Name = "Rahul"
+
+These are two different variables.
+
+Interview answer:
+
+Python variable names must start with a letter or underscore, can contain letters, digits and underscores, cannot contain spaces or special characters, are case-sensitive, and cannot be Python keywords.
+
+4. Is Python statically typed or dynamically typed?
+
+Python is a dynamically typed language.
+
+This means we don't need to specify the data type while creating a variable.
+
+Example:
+x = 10
+
+Python understands that x is an integer.
+
+Later:
+
+x = "Hello"
+
+Now x refers to a string.
+
+print(type(x))
+
+Output:
+
+<class 'str'>
+
+So the type can change during execution.
+
+Interview answer:
+
+Python is dynamically typed because the variable's type is determined at runtime, and we don't need to explicitly declare the type of a variable.
+
+5. What is Dynamic Typing in Python?
+
+Dynamic typing means the type of a variable is determined at runtime, not when the variable is declared.
+
+Example:
+
+x = 100
+print(type(x))
+
+Output:
+
+<class 'int'>
+
+Then:
+
+x = "Python"
+print(type(x))
+
+Output:
+
+<class 'str'>
+
+The same variable x can refer to objects of different types at different times.
+
+Simple diagram:
+x = 100
+ ↓
+int
+
+x = "Python"
+ ↓
+str
+
+Interview answer:
+
+Dynamic typing means Python determines the type of an object at runtime, and the same variable name can refer to objects of different types during execution.
+
+6. Explain how memory allocation works when a variable is created in Python.
+
+This is an important interview question.
+
+When we write:
+
+x = 10
+
+Python creates an integer object 10 in memory and makes x refer to that object.
+
+Think of it as:
+
+Variable          Object
+   x   ─────────→   10
+
+If we do:
+
+y = x
+
+then:
+
+       ┌─────────┐
+x ───→ │   10    │
+       └─────────┘
+          ↑
+y ────────┘
+
+Both x and y refer to the same object.
+
+Python manages memory automatically using mechanisms such as reference counting and garbage collection.
+
+Example:
+x = 10
+y = x
+
+print(x)
+print(y)
+
+Output:
+
+10
+10
+
+Interview answer:
+
+When a variable is assigned a value, Python creates or references an object in memory and binds the variable name to that object. Python automatically manages memory using reference counting and garbage collection.
+
+7. What happens if you assign a new value to an existing variable?
+
+The variable will refer to the new object.
+
+Example:
+
+x = 10
+
+x = 20
+
+Initially:
+
+x → 10
+
+After reassignment:
+
+x → 20
+
+The old object may become eligible for garbage collection if nothing else refers to it.
+
+Example:
+x = 10
+print(x)
+
+x = 50
+print(x)
+
+Output:
+
+10
+50
+
+Important: Python doesn't change the integer object 10 into 50. Instead, x is rebound to the object 50.
+
+8. What is Multiple Assignment in Python?
+
+Multiple assignment means assigning values to multiple variables in a single statement.
+
+There are different ways.
+
+Method 1: Assign different values
+name, age, city = "Shruthi", 25, "Chennai"
+
+Equivalent to:
+
+name = "Shruthi"
+age = 25
+city = "Chennai"
+Method 2: Assign the same value
+a = b = c = 10
+
+Now:
+
+a → 10
+b → 10
+c → 10
+Method 3: Unpacking
+numbers = [10, 20, 30]
+
+a, b, c = numbers
+
+Now:
+
+a = 10
+b = 20
+c = 30
+
+Interview answer:
+
+Multiple assignment allows us to assign values to multiple variables in a single statement. Python supports assigning different values, the same value, and unpacking iterable values.
+
+9. How can you swap two variables without using a third variable?
+
+Python provides a very simple way using tuple unpacking.
+
+a = 10
+b = 20
+
+a, b = b, a
+
+print(a)
+print(b)
+
+Output:
+
+20
+10
+Before:
+a = 10
+b = 20
+After:
+a = 20
+b = 10
+
+We don't need:
+
+temp = a
+
+Interview answer:
+
+Python allows us to swap two variables without a temporary variable using multiple assignment or tuple unpacking: a, b = b, a.
+
+10. Difference between assigning the same value and different values
+Same value:
+a = b = c = 100
+
+All variables get the same value.
+
+a = 100
+b = 100
+c = 100
+Different values:
+a, b, c = 10, 20, 30
+
+Each variable receives a different value.
+
+a = 10
+b = 20
+c = 30
+Comparison:
+Same Value	Different Values
+a = b = c = 100	a, b, c = 10, 20, 30
+All receive same value	Each receives corresponding value
+11. What is the purpose of the type() function?
+
+type() is used to identify the data type/class of an object.
+
+Example:
+x = 100
+
+print(type(x))
+
+Output:
+
+<class 'int'>
+
+Another example:
+
+name = "Shruthi"
+
+print(type(name))
+
+Output:
+
+<class 'str'>
+Common types:
+print(type(10))          # int
+print(type(10.5))        # float
+print(type("Python"))    # str
+print(type(True))        # bool
+
+Interview answer:
+
+The type() function is used to determine the type or class of an object at runtime.
+
+12. What is Type Casting? Why is it important while working with CSV or Excel data in ETL Testing?
+Type Casting
+
+Type casting means converting a value from one data type to another.
+
+For example:
+
+age = "25"
+
+age = int(age)
+
+print(type(age))
+
+Output:
+
+<class 'int'>
+
+Here:
+
+"25" → 25
+str     int
+Why is it important in ETL Testing?
+
+When data comes from CSV or Excel, numeric values may sometimes be read as strings.
+
+For example:
+
+Source CSV
+
+Employee_ID | Salary
+101         | 50000
+102         | 60000
+
+Python may read:
+
+salary = "50000"
+
+instead of:
+
+salary = 50000
+
+If we want to perform calculations:
+
+salary = "50000"
+
+print(salary + 1000)
+
+This causes an error because a string and integer cannot be added.
+
+We can cast it:
+
+salary = int(salary)
+
+print(salary + 1000)
+
+Output:
+
+51000
+ETL example:
+
+Suppose source has:
+
+Customer_ID = "101"
+
+and target expects:
+
+Customer_ID = 101
+
+We can validate:
+
+source_id = "101"
+
+target_id = 101
+
+if int(source_id) == target_id:
+    print("Data matched")
+else:
+    print("Data mismatch")
+
+Interview answer:
+
+Type casting is the process of converting data from one type to another. In ETL testing, it is important because source files such as CSV or Excel may contain numeric or date values as strings, while the target database expects specific data types. Casting helps perform accurate comparisons and validations.
+
+13. Differentiate between int(), float(), str(), and bool()
+
+These are commonly used type conversion functions.
+
+int()
+
+Converts a value to integer.
+
+x = int("100")
+
+print(x)
+print(type(x))
+
+Output:
+
+100
+<class 'int'>
+float()
+
+Converts a value to floating-point number.
+
+x = float("100.50")
+
+print(x)
+
+Output:
+
+100.5
+str()
+
+Converts a value to string.
+
+x = str(100)
+
+print(x)
+print(type(x))
+
+Output:
+
+100
+<class 'str'>
+bool()
+
+Converts a value to Boolean (True or False).
+
+print(bool(1))
+print(bool(0))
+
+Output:
+
+True
+False
+Summary:
+Function	Conversion
+int()	→ Integer
+float()	→ Float
+str()	→ String
+bool()	→ Boolean
+14. What are comments in Python?
+
+Comments are text written in code to explain what the code does. Python ignores comments during execution.
+
+Single-line comment
+
+Use #.
+
+# Calculate employee salary
+salary = 50000
+Multiple-line explanation
+
+Python doesn't have a separate dedicated multi-line comment syntax. For multiple comments, # can be used on each line:
+
+# Read employee data
+# Validate employee ID
+# Compare source and target
+
+Triple-quoted strings can also span multiple lines, but they are technically string literals, not comments:
+
+"""
+This is a string literal
+spanning multiple lines.
+"""
+Why are comments important in real-time projects?
+
+Comments help developers:
+
+Understand complex logic
+Explain business rules
+Maintain code
+Debug problems
+Help new team members understand the code
+Example in ETL testing:
+# Read source employee ID
+source_id = "101"
+
+# Convert source ID from string to integer
+source_id = int(source_id)
+
+# Compare source ID with target ID
+if source_id == target_id:
+    print("Matched")
+
+Interview answer:
+
+Comments are used to explain code and make it easier to understand and maintain. In real-time projects, they are useful for documenting complex logic, business rules, validations, and important assumptions.
+
+15. In an ETL Testing project, how would you use variables, comments, type checking, and type casting while validating source and target data?
+
+This is a very important practical interview question. You can answer it with a real-world example.
+
+Suppose we have:
+
+Source CSV
+Employee_ID | Salary
+101         | 50000
+Target Database
+Employee_ID | Salary
+101         | 50000
+
+Python validation:
+
+# Source data
+source_employee_id = "101"
+source_salary = "50000"
+
+# Target data
+target_employee_id = 101
+target_salary = 50000
+
+# Check data types
+print(type(source_employee_id))
+print(type(target_employee_id))
+
+# Convert source values to expected types
+source_employee_id = int(source_employee_id)
+source_salary = int(source_salary)
+
+# Validate source and target
+if source_employee_id == target_employee_id:
+    print("Employee ID Matched")
+else:
+    print("Employee ID Mismatch")
+
+if source_salary == target_salary:
+    print("Salary Matched")
+else:
+    print("Salary Mismatch")
+
+Output:
+
+<class 'str'>
+<class 'int'>
+
+Employee ID Matched
+Salary Matched
+What are we using here?
+Variables
+   ↓
+Store source and target values
+
+type()
+   ↓
+Check data types
+
+Type casting
+   ↓
+Convert source data to expected type
+
+Comments
+   ↓
+Explain validation logic
+
+if condition
+   ↓
+Compare source and target
+⭐ Strong Interview Answer
+
+In ETL testing, I use variables to store source and target values during validation. I use type() to verify whether the data types are correct. If the source file contains values as strings, I use type casting such as int(), float(), or str() before comparison. I also use comments to document the validation logic and business rules. This helps me perform accurate source-to-target data validation and identify data type mismatches.
+
+🎯 Quick Revision for Interview
+Variable
+   ↓
+Stores/references data
+
+Dynamic Typing
+   ↓
+Type determined at runtime
+
+type()
+   ↓
+Checks data type
+
+Type Casting
+   ↓
+Converts data type
+
+Comments
+   ↓
+Explain/document code
+
+Multiple Assignment
+   ↓
+a, b = 10, 20
+
+Swap
+   ↓
+a, b = b, a
+
+ETL Testing
+   ↓
+Source → Validate → Transform/Cast → Compare → Target
+⭐ Most important one-line answers
+Variable: Name that refers to an object/value.
+Creation: x = 10
+Naming: Follow Python's identifier rules.
+Python typing: Dynamically typed.
+Dynamic typing: Type is determined at runtime.
+Memory: Variables refer to objects stored in memory.
+Reassignment: Variable is rebound to another object.
+Multiple assignment: Assign multiple values/variables in one statement.
+Swap: a, b = b, a
+Same/different: a=b=c=10 vs a,b,c=10,20,30
+type(): Finds an object's type.
+Type casting: Converts one data type to another.
+Conversions: int(), float(), str(), bool().
+Comments: Explain/document code.
+ETL: Use variables + type checking + casting + comments for source-to-target validation.
