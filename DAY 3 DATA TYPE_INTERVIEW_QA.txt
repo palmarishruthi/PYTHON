@@ -1,0 +1,730 @@
+Chapter 3 – Data Types
+Python for Data Engineering – Interview Questions & Answers
+
+Below are interview-ready answers in simple language, with examples and Data Engineering/ETL context.
+
+1. What are data types in Python?
+
+Data types define the kind of value an object contains and determine what operations can be performed on it.
+
+Examples:
+
+age = 25          # int
+salary = 45000.50 # float
+name = "Shruthi"  # str
+status = True     # bool
+
+Interview answer:
+
+Data types specify the type of data stored in an object, such as integer, float, string, Boolean, list, tuple, set, and dictionary.
+
+2. Why are data types important in Python?
+
+Data types are important because they determine:
+
+How data is represented
+What operations can be performed
+How values can be processed
+How data can be converted
+How data should be validated
+
+Example:
+
+age = 25
+print(age + 5)
+
+Output:
+
+30
+
+But:
+
+age = "25"
+print(age + 5)
+
+causes a TypeError because "25" is a string.
+
+3. What are the built-in data types available in Python?
+
+Common built-in data types include:
+
+Category	Data Types
+Numeric	int, float, complex
+Boolean	bool
+Text	str
+Sequence	list, tuple, range
+Set	set, frozenset
+Mapping	dict
+Binary	bytes, bytearray, memoryview
+None	NoneType
+
+For Data Engineering, commonly used ones are:
+
+int
+float
+str
+bool
+list
+tuple
+dict
+4. How does Python determine the data type of a variable?
+
+Python determines the type based on the value/object assigned to the variable.
+
+x = 100
+
+Python identifies 100 as an integer.
+
+x = "100"
+
+Now x refers to a string.
+
+x = 10.5
+
+Now it refers to a float.
+
+This is one reason Python is called dynamically typed.
+
+5. How can you check the data type of a variable?
+
+Use the type() function.
+
+x = 100
+
+print(type(x))
+
+Output:
+
+<class 'int'>
+
+Examples:
+
+print(type(10))        # int
+print(type(10.5))      # float
+print(type("Python"))  # str
+print(type(True))      # bool
+6. Difference between a variable and a data type?
+Variable	Data Type
+Name that refers to an object/value	Defines the kind of data
+Can refer to different objects	Determines supported operations
+Example: age	Example: int
+
+Example:
+
+age = 25
+
+Here:
+
+age  → Variable
+25   → Value/Object
+int  → Data type
+7. What is memory representation of a data type?
+
+Memory representation refers to how a value/object is stored and represented in memory.
+
+For example:
+
+x = 10
+
+Conceptually:
+
+Variable          Object
+   x    ───────→   10
+                   int
+
+Different Python objects contain information such as their type and value.
+
+Interview answer:
+
+Memory representation describes how an object's value and type information are represented in memory. Python manages these details automatically.
+
+8. How does Python allocate memory for variables?
+
+Python variables are references to objects, rather than fixed memory boxes containing values.
+
+For:
+
+x = 10
+
+Python creates or uses an integer object and binds x to it.
+
+x ─────────→ 10
+             ↑
+           object
+
+Python automatically manages memory using mechanisms such as reference counting and garbage collection.
+
+9. What is the int data type?
+
+int represents whole numbers without decimal values.
+
+Examples:
+
+age = 25
+count = 100
+temperature = -5
+
+All are integers.
+
+Python integers can represent positive, negative, and zero values.
+
+10. How do you create an integer variable?
+
+Simply assign an integer value:
+
+age = 25
+
+Or explicitly convert:
+
+age = int("25")
+
+Check:
+
+print(type(age))
+
+Output:
+
+<class 'int'>
+11. Can an integer variable store negative values?
+
+Yes.
+
+temperature = -10
+balance = -500
+
+These are valid integers.
+
+print(type(-10))
+
+Output:
+
+<class 'int'>
+12. Difference between integer and float?
+Integer	Float
+Whole numbers	Numbers containing decimal/floating-point values
+10	10.0
+50000	50000.50
+
+Example:
+
+x = 10
+y = 10.0
+
+print(type(x))  # int
+print(type(y))  # float
+13. What is the float data type?
+
+float represents floating-point numbers, commonly used for decimal values.
+
+Examples:
+
+salary = 50000.50
+percentage = 72.5
+temperature = -10.5
+14. How do you create a float variable?
+
+Assign a decimal value:
+
+salary = 50000.50
+
+Or use float():
+
+salary = float("50000.50")
+
+Check:
+
+print(type(salary))
+
+Output:
+
+<class 'float'>
+15. Can a float store decimal values?
+
+Yes.
+
+salary = 45000.75
+percentage = 72.5
+
+Both are floats.
+
+One important real-world point: binary floating-point values can have small representation/rounding differences. For financial calculations requiring exact decimal behavior, applications may use decimal.Decimal.
+
+16. What happens when an integer is divided by another integer using /?
+
+The / operator performs true division and returns a float.
+
+a = 10
+b = 2
+
+result = a / b
+
+print(result)
+print(type(result))
+
+Output:
+
+5.0
+<class 'float'>
+
+Even though both inputs are integers, / returns a float.
+
+If you want integer floor division:
+
+10 // 2
+
+Output:
+
+5
+17. What is the complex data type?
+
+complex represents complex numbers containing a real and imaginary component.
+
+Example:
+
+x = 3 + 4j
+
+Here x is a complex number.
+
+print(type(x))
+
+Output:
+
+<class 'complex'>
+18. What are the real and imaginary parts of a complex number?
+
+For:
+
+x = 3 + 4j
+Real part = 3
+Imaginary part = 4
+
+Python provides:
+
+print(x.real)
+print(x.imag)
+
+Output:
+
+3.0
+4.0
+19. How do you create a complex number?
+
+You can write:
+
+x = 3 + 4j
+
+Or use the complex() function:
+
+x = complex(3, 4)
+
+print(x)
+
+Output:
+
+(3+4j)
+20. What does j represent in a complex number?
+
+In Python, j represents the imaginary unit.
+
+Example:
+
+x = 5 + 2j
+
+Here:
+
+5 → real part
+2j → imaginary part
+
+Python uses j rather than i for the imaginary component.
+
+21. Difference between int, float, and complex?
+Type	Example	Meaning
+int	10	Whole number
+float	10.5	Floating-point number
+complex	10+5j	Real + imaginary number
+
+Example:
+
+a = 10
+b = 10.5
+c = 10 + 5j
+22. What is the Boolean data type?
+
+bool represents a logical value.
+
+It has only two values:
+
+True
+False
+
+Example:
+
+job_completed = True
+data_valid = False
+23. What are the two Boolean values?
+
+The two Boolean values are:
+
+True
+False
+
+They must begin with a capital letter.
+
+Correct:
+
+status = True
+
+Incorrect:
+
+status = true
+24. Difference between True and "True"?
+
+They have different data types.
+
+x = True
+y = "True"
+
+print(type(x))
+print(type(y))
+
+Output:
+
+<class 'bool'>
+<class 'str'>
+
+So:
+
+True     → Boolean
+"True"   → String
+
+This distinction is very important in ETL testing.
+
+25. How is Boolean data used in conditional statements?
+
+Boolean values are commonly used with if.
+
+job_completed = True
+
+if job_completed:
+    print("ETL job completed")
+else:
+    print("ETL job failed")
+
+Output:
+
+ETL job completed
+
+Boolean expressions also produce Boolean values:
+
+salary = 50000
+
+print(salary > 40000)
+
+Output:
+
+True
+26. How can Boolean values be useful in Data Engineering?
+
+Boolean values are useful for representing status or conditions.
+
+Examples:
+
+job_success = True
+data_valid = True
+duplicate_found = False
+file_received = True
+
+They can be used for:
+
+ETL job status
+Data validation
+Duplicate detection
+File availability
+Quality checks
+Pipeline conditions
+
+Example:
+
+if data_valid:
+    print("Load data")
+else:
+    print("Reject data")
+27. How can numeric data types be used in a Data Engineering pipeline?
+
+Numeric types are frequently used for:
+
+Record counts
+Customer IDs
+Employee IDs
+Salary
+Revenue
+Quantity
+Aggregations
+Metrics
+
+Example:
+
+record_count = 1000
+salary = 55000.75
+total_sales = 250000
+
+For example:
+
+total = 100
+processed = 95
+
+success_rate = processed / total * 100
+
+print(success_rate)
+
+Output:
+
+95.0
+28. Why is choosing the correct data type important while processing data?
+
+Choosing the correct type helps ensure:
+
+Accurate calculations
+Correct comparisons
+Proper validation
+Better data quality
+Fewer runtime errors
+Correct storage in target systems
+
+Example:
+
+salary = "50000"
+
+is different from:
+
+salary = 50000
+
+If salary is stored as a string, numerical calculations may fail or require conversion.
+
+29. What happens if numeric data is stored as a string?
+
+Suppose:
+
+salary = "50000"
+
+Python treats it as text.
+
+This will fail:
+
+print(salary + 5000)
+
+because one value is a string and the other is an integer.
+
+We can convert it:
+
+salary = int(salary)
+
+print(salary + 5000)
+
+Output:
+
+55000
+
+ETL example: A CSV file may contain "50000" as text, while the target database expects an integer or decimal value.
+
+30. How can incorrect data types cause problems during data processing?
+
+Incorrect data types can cause:
+
+Calculation errors
+Type errors
+Incorrect sorting
+Incorrect comparisons
+Failed database loads
+Data validation failures
+Incorrect aggregations
+
+Example:
+
+values = ["10", "20", "30"]
+
+Sorting strings can produce different behavior from sorting numeric values.
+
+For reliable ETL processing, validate and convert data types before performing calculations or loading into the target.
+
+31. Difference between 10, 10.0, and "10"?
+
+These represent three different types:
+
+a = 10
+b = 10.0
+c = "10"
+Value	Data Type
+10	int
+10.0	float
+"10"	str
+
+Check:
+
+print(type(a))
+print(type(b))
+print(type(c))
+
+Output:
+
+<class 'int'>
+<class 'float'>
+<class 'str'>
+32. How can you identify whether a value is an integer, float, or string?
+
+Use type():
+
+x = 10
+
+print(type(x))
+
+Or use isinstance() when you want to test whether an object is an instance of a type:
+
+x = 10
+
+print(isinstance(x, int))
+
+Output:
+
+True
+
+Examples:
+
+isinstance(10, int)       # True
+isinstance(10.5, float)   # True
+isinstance("10", str)     # True
+33. What data type would you use to store a record count?
+
+Normally, use int.
+
+record_count = 1000
+
+Why?
+
+Because a record count is a whole number.
+
+print(type(record_count))
+
+Output:
+
+<class 'int'>
+
+ETL example:
+
+source_count = 1000
+target_count = 1000
+
+if source_count == target_count:
+    print("Count Matched")
+34. What data type would you use to store employee salary?
+
+Normally, use float for a simple Python example when fractional values are possible:
+
+salary = 55000.75
+
+For financial applications where exact decimal arithmetic is required, Python's decimal.Decimal is often preferable.
+
+In a database, the corresponding target column is commonly designed as something like:
+
+DECIMAL(12,2)
+
+depending on the system requirements.
+
+35. What data type would you use to store validation status such as PASS or FAIL?
+
+If you specifically need to store the text:
+
+validation_status = "PASS"
+
+then use str.
+
+validation_status = "FAIL"
+
+Why?
+
+Because PASS and FAIL are text values.
+
+However, if you only need a yes/no condition, a bool can be more appropriate:
+
+validation_passed = True
+36. What data type would you use to store a condition such as whether an ETL job completed successfully?
+
+Use bool.
+
+etl_job_completed = True
+
+or:
+
+etl_job_completed = False
+
+Example:
+
+if etl_job_completed:
+    print("ETL job completed successfully")
+else:
+    print("ETL job failed")
+37. Explain the importance of data types in real-time Data Engineering.
+
+This is an important interview question.
+
+Strong interview answer:
+
+Data types are very important in Data Engineering because they determine how source data is interpreted, validated, transformed, calculated, and loaded into the target system. Correct data types help prevent calculation errors, data quality issues, failed loads, and incorrect source-to-target comparisons.
+
+Real-time ETL example:
+
+Suppose the source CSV contains:
+
+Employee_ID,Salary
+101,50000
+102,60000
+
+When read by Python, values may need to be checked and converted appropriately.
+
+employee_id = int("101")
+salary = float("50000")
+
+Then we can validate:
+
+source_salary = float("50000")
+target_salary = 50000.0
+
+if source_salary == target_salary:
+    print("Salary Matched")
+else:
+    print("Salary Mismatch")
+Data Engineering flow:
+SOURCE
+CSV / Excel / Database
+        ↓
+     READ DATA
+        ↓
+   CHECK DATA TYPE
+        ↓
+   TYPE CASTING
+ int / float / str / bool
+        ↓
+     VALIDATION
+        ↓
+ TRANSFORMATION
+        ↓
+ TARGET DATABASE
+
+
+🎯 Quick Interview Revision
+Question	Key Point
+Data type	Defines kind of data
+Python typing	Dynamically typed
+type()	Checks object's type
+int	Whole numbers
+float	Floating-point numbers
+complex	Real + imaginary
+bool	True / False
+10	int
+10.0	float
+"10"	str
+Record count	int
+Salary	float / Decimal when appropriate
+PASS/FAIL	str
+Job completed?	bool
+ETL importance	Correct types → accurate processing & validation
